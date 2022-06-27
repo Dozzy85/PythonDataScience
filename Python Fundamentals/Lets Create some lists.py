@@ -50,3 +50,8 @@ print(my_list[-8:7])
 #Advance Slicing
 print(my_list[2:9:2]) # il terzo numero indica lo step ['c', 'e', 'g', 'i']
 print(my_list[::3]) # Dall'inizio saltando 3 valori ['a', 'd', 'g', 'J']
+print(my_list[::-1]) # Visualizzo la lista al contrario ['J', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']
+
+#Tuple = immutable list
+t1 = (345, 674, 934)
+print(t1)

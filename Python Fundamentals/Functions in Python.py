@@ -1,0 +1,15 @@
+print(range(20, 31))
+mylist = list(range(20, 31))
+print(mylist)
+print(len(mylist))
+print(type(mylist))
+
+massimo = max(mylist)
+print(massimo)
+minimo = min(mylist)
+print(minimo)
+
+massimo = max(11, 435, 7)
+print(massimo)
+minimo = min(11, 435, 7)
+print(minimo)
