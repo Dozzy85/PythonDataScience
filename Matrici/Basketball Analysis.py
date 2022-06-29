@@ -175,3 +175,9 @@ r3 = [1, 2, 3]
 [r1, r2, r3]
 np.array([r1, r2, r3])
 print(np.array([r1, r2, r3]))
+
+#Dictionaries
+dict1 = {'key1':'val1', 'key2':'val2', 'key3':'val3'}
+print(dict1['key2']) #restituisce il valore associato
+dict2 = {'Germany':'I have been here', 'France':2, 'Spain':True}
+print(dict2['France'])
