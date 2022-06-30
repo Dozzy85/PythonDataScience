@@ -181,3 +181,31 @@ dict1 = {'key1':'val1', 'key2':'val2', 'key3':'val3'}
 print(dict1['key2']) #restituisce il valore associato
 dict2 = {'Germany':'I have been here', 'France':2, 'Spain':True}
 print(dict2['France'])
+
+#Matrix Operations
+print(Pdict["LeBronJames"])
+print(Sdict["2009"])
+print(Salary[Pdict["LeBronJames"]][Sdict["2009"]])
+
+import warnings #importo warning per gestire l'errore
+warnings.filterwarnings('ignore') #metto ignore in quanto conosco l'errore
+FieldGoalsPerGame = np.matrix.round(FieldGoals/Games) #chiamando la funzione np.matrix.round tolgo i numeri dopo la virgola
+print(FieldGoalsPerGame[Pdict["DerrickRose"]][Sdict["2009"]]) #cosi ottngo la media dei punti fatti a partita dal giocatore in quel determinato anno
+#Percentuale accuratezza ogni giocatore
+PerAccGioc = np.matrix.round(FieldGoals / FieldGoalAttempts, 2) * 100 #il 2 indica i decimali di precisone
+print(PerAccGioc)
+
+#Visualization
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.plot(Salary[0], c='Black', ls='--', marker='s', ms='7') #con c='Black' si imposta il colore nero,
+                                                            # con ls=-- cambia lo stile della linea,
+                                                            # con marker='s' aggiungo un segnaposto,
+                                                            # con ms='7' cambio la dimensione del mark
+plt.rcParams['figure.figsize'] = 8,4
+plt.show() #ho installato PyQt5 per vederlo
+
+plt.plot(Salary[0], c='Black', ls='--', marker='s', ms='7', label = Players[0]) #con label aggiungo delle etichette
+plt.xticks(list(range(0, 10)), Seasons, rotation = 'vertical') #con vertical lo imposto verticalmente
+plt.show() #ho installato PyQt5 per vederlo
