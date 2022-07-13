@@ -240,3 +240,41 @@ plt.plot(Games[9], c='Black', ls='--', marker='o', ms='7', label = Players[9])
 plt.legend(loc='upper left', bbox_to_anchor=(1,1))
 plt.xticks(list(range(0, 10)), Seasons, rotation = 'vertical')
 plt.show()
+
+#Our Own Function
+def myplot(playerlist):
+    for name in playerlist:
+        plt.plot(Games[Pdict[name]], c='Black', ls='--', marker='s', ms='7', label=name)
+    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+    plt.xticks(list(range(0, 10)), Seasons, rotation='vertical')
+    plt.show()
+
+myplot(["KobeBryant", "LeBronJames", "DerrickRose"])
+
+#Advance Function Design
+def myplot(playerlist):
+    for name in playerlist:
+        Col = {"KobeBryant": 'Black', "JoeJohnson": 'Red', "LeBronJames": 'Green', "CarmeloAnthony": 'Blue', "DwightHoward": 'Magenta', "ChrisBosh": 'Black',
+         "ChrisPaul": 'Red', "KevinDurant": 'Green', "DerrickRose": 'Blue', "DwayneWade": 'Magenta'}
+        Mrk = {"KobeBryant": 's', "JoeJohnson": 'o', "LeBronJames": '^', "CarmeloAnthony": 'D', "DwightHoward": 's', "ChrisBosh": 'o',
+         "ChrisPaul": '^', "KevinDurant": 'D', "DerrickRose": 's', "DwayneWade": 'o'}
+        plt.plot(Games[Pdict[name]], c=Col[name], ls='--', marker=Mrk[name], ms='7', label=name)
+    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+    plt.xticks(list(range(0, 10)), Seasons, rotation='vertical')
+    plt.show()
+
+myplot(["KobeBryant", "LeBronJames", "DerrickRose","JoeJohnson"])
+
+#Advance Function Design: Fix up the input
+def myplot(data, playerlist = Players):
+    for name in playerlist:
+        Col = {"KobeBryant": 'Black', "JoeJohnson": 'Red', "LeBronJames": 'Green', "CarmeloAnthony": 'Blue', "DwightHoward": 'Magenta', "ChrisBosh": 'Black',
+         "ChrisPaul": 'Red', "KevinDurant": 'Green', "DerrickRose": 'Blue', "DwayneWade": 'Magenta'}
+        Mrk = {"KobeBryant": 's', "JoeJohnson": 'o', "LeBronJames": '^', "CarmeloAnthony": 'D', "DwightHoward": 's', "ChrisBosh": 'o',
+         "ChrisPaul": '^', "KevinDurant": 'D', "DerrickRose": 's', "DwayneWade": 'o'}
+        plt.plot(Games[Pdict[name]], c=Col[name], ls='--', marker=Mrk[name], ms='7', label=name)
+    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+    plt.xticks(list(range(0, 10)), Seasons, rotation='vertical')
+    plt.show()
+
+myplot(Salary, ["KobeBryant", "LeBronJames", "DerrickRose"])
