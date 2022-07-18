@@ -23,3 +23,28 @@ stats2 = pd.read_csv('1.1 DemographicData.csv')
 
 print(os.getcwd())
 print(stats2)
+
+#Esplorare i dati
+
+#Numero di righe
+print(len(stats))
+
+#Vedere le colonne
+print(stats.columns)
+
+#Il numero di colonne
+print(len(stats.columns))
+
+#Vedere le righe più in alto
+print(stats.head()) #oppure per specificare il numero di righe da vedere stats.head(6)
+
+#Vedere le righe in fondo
+print(stats.tail()) #oppure per specificare il numero di righe da vedere stats.tail(6)
+
+#Leggere informazioni sulle colonne
+print(stats.info())
+
+#Vedere le statistiche delle colonne
+print(stats.describe())
+print(stats.describe().transpose())
+
