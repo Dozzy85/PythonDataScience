@@ -48,3 +48,34 @@ print(stats.info())
 print(stats.describe())
 print(stats.describe().transpose())
 
+#Rinominare le colonne del Data Frame
+print(stats.columns)
+stats.columns = ['CountryName', 'CountryCode', 'BirthRate', 'InternetUsers', 'IncomeGroup']
+print(stats.head())
+
+#Creare dei sotto insiemi di Data Frame
+#Righe
+#Colonne
+#RIghe e Colonne
+#Parte 1: Sotto insieme delle righe
+print(stats[21:26])
+
+#Esercizio: Rovesciare il Data Frame
+print(stats[ : : -1])
+
+#Esercizio: Ogni 20 righe prendiamo il record
+print(stats[ : : 20])
+
+#Parte 2: Sotto insieme delle colonne
+print(stats['CountryName'].head())
+
+print(stats[['CountryName', 'BirthRate']].head())
+
+print(stats[['BirthRate', 'CountryName']].head())
+
+#Accesso Veloce: rihciede che il nome sia una sola parola
+print(stats.BirthRate.head())
+
+#Parte 3: Sotto insieme di righe e colonne
+df1 = stats[4:8][['CountryName', 'BirthRate']]
+print(df1)
