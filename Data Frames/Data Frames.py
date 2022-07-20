@@ -3,6 +3,8 @@ import pandas as pd #miglio package per lavorare con data frames
 #Metodo 1: Specificare il percorso completo del file
 #Per catturare il contenuto
 #In Windows
+from pyasn1_modules.rfc2251 import Filter
+
 stats = pd.read_csv('C:\\Users\\Dell\\PycharmProjects\\PythonDataScience\\1.1 DemographicData.csv')
 
 #In Mac stats = pd.read_csv('/Users/Dell/PycharmProjects/PythonDataScience/1.1 DemographicData.csv')
@@ -79,3 +81,40 @@ print(stats.BirthRate.head())
 #Parte 3: Sotto insieme di righe e colonne
 df1 = stats[4:8][['CountryName', 'BirthRate']]
 print(df1)
+
+#Operazioni basi con i dataframe di matematica
+result = stats.BirthRate*stats.InternetUsers
+print(result.head())
+
+#Aggiungere una colonna
+stats['MyCalc'] = stats.BirthRate*stats.InternetUsers
+print(stats.head())
+
+#Rimuovere una colonna
+print(stats.head())
+stats = stats.drop('MyCalc', 1)
+print(stats.head())
+
+#Filtrare i Dataframes
+#Filtrare le righe
+Filter = stats.InternetUsers < 2
+print(Filter)
+print(stats[Filter])
+
+Filter2 = stats.BirthRate > 40
+print(stats[Filter2])
+
+stats[Filter & Filter2]
+print(stats[Filter & Filter2])
+
+stats[stats.IncomeGroup == 'High income']
+print(stats[stats.IncomeGroup == 'High income'])
+
+#Come prendere tutte le categorie ma in maniera univoca
+stats.IncomeGroup.unique()
+print(stats.IncomeGroup.unique())
+
+#Esercizio filtrare tutto per il paese Malta
+print(stats.CountryName.unique())
+Filter3 = stats[stats.CountryName == 'Malta']
+print(Filter3)
