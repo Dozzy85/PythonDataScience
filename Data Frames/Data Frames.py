@@ -1,3 +1,5 @@
+import inline as inline
+import matplotlib
 import pandas as pd #miglio package per lavorare con data frames
 
 #Metodo 1: Specificare il percorso completo del file
@@ -118,3 +120,35 @@ print(stats.IncomeGroup.unique())
 print(stats.CountryName.unique())
 Filter3 = stats[stats.CountryName == 'Malta']
 print(Filter3)
+
+#Accesso individuale ad un elemento
+#.at per le etiohette, importante anche i valori integer sono trattati come etichette
+#.iat solo per posizioni integer
+stats.iat[3,4]
+print(stats.iat[3,4])
+stats.iat[0,1]
+print(stats.iat[0,1])
+
+stats.at[2,'BirthRate']
+print(stats.at[2,'BirthRate'])
+
+sub10 = stats[::10]
+print(sub10)
+sub10.iat[10,0]
+print(sub10.iat[10,0])
+sub10.at[10,'CountryName']
+print(sub10.at[10,'CountryName'])
+
+#Introduzione a Seaborn package per la visualizzazione
+import matplotlib.pyplot as plt
+import seaborn as sns
+plt.rcParams['figure.figsize'] = 8,4
+import warnings
+warnings.filterwarnings('ignore')
+
+#Distribuzione
+vis1 = sns.displot(stats['InternetUsers'])
+vis1 = sns.distplot(stats["InternetUsers"], bins=30)
+
+#Bosxplots
+vis2 = sns.boxplot(data=stats, x='InternetUsers', y='BirthRate')
