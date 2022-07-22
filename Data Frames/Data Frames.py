@@ -152,3 +152,13 @@ vis1 = sns.distplot(stats["InternetUsers"], bins=30)
 
 #Bosxplots
 vis2 = sns.boxplot(data=stats, x='InternetUsers', y='BirthRate')
+
+#Visualizzazioni con seaborn
+vis3 = sns.lmplot(data=stats, x='InternetUsers', y='BirthRate', fit_reg=False,
+                  hue='IncomeGroup', size=8,
+                  scatter_kws={'s':100}) #fit_reg=False toglie la riga, per i cololi hue='IncomeGroup',
+                                         # size=10 per la dimensione, aspect=1 proporzione tra larghezza e altezza,
+                                         # scatter_kws={'s':100} per dimensionare i marker
+plt.show()
+vis4 = sns.distplot(stats["BirthRate"], bins=30)
+plt.show()
