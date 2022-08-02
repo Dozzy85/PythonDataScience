@@ -1,11 +1,8 @@
-import inline as inline
-import matplotlib
-import pandas as pd #miglio package per lavorare con data frames
+import pandas as pd #migliore package per lavorare con data frames
 
 #Metodo 1: Specificare il percorso completo del file
 #Per catturare il contenuto
 #In Windows
-from pyasn1_modules.rfc2251 import Filter
 
 stats = pd.read_csv('C:\\Users\\Dell\\PycharmProjects\\PythonDataScience\\1.1 DemographicData.csv')
 
