@@ -20,3 +20,15 @@ movies.Year = movies.Year.astype('category')
 print(movies.info())
 print(movies.Genere.cat.categories)
 print(movies.describe())
+
+#Visualizzazione
+from matplotlib import pyplot as plt
+import seaborn as sns
+import warnings
+warnings.filterwarnings('ignore')
+
+#Jointplots
+j = sns.jointplot(data=movies, x='CriticRating', y='AudienceRating')
+plt.show()
+j = sns.jointplot(data=movies, x='CriticRating', y='AudienceRating', kind='hex')
+plt.show()
