@@ -32,3 +32,31 @@ j = sns.jointplot(data=movies, x='CriticRating', y='AudienceRating')
 plt.show()
 j = sns.jointplot(data=movies, x='CriticRating', y='AudienceRating', kind='hex')
 plt.show()
+
+#Istogrammi
+m1 = sns.displot(movies.AudienceRating, bins=15)
+plt.show()
+m2 = sns.displot(movies.CriticRating, bins=15)
+plt.show()
+n1 = plt.hist(movies.AudienceRating, bins=15)
+plt.show()
+n2 = plt.hist(movies.CriticRating, bins=15)
+plt.show()
+
+#Grafici a barre impilate
+plt.hist([movies[movies.Genere == 'Drama'].BudgetMillions, movies[movies.Genere == 'Action'].BudgetMillions, movies[movies.Genere == 'Thriller'].BudgetMillions], bins=15, stacked=True)
+plt.show()
+
+for gen in movies.Genere.cat.categories:
+    print(gen)
+
+list1 = list()
+mylabels = list()
+for gen in movies.Genere.cat.categories:
+    list1.append(movies[movies.Genere == gen].BudgetMillions)
+    mylabels.append(gen)
+
+
+h = plt.hist(list1, bins=30, stacked=True, rwidth=1, label=mylabels)
+plt.legend()
+plt.show()
