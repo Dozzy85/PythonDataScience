@@ -60,3 +60,18 @@ for gen in movies.Genere.cat.categories:
 h = plt.hist(list1, bins=30, stacked=True, rwidth=1, label=mylabels)
 plt.legend()
 plt.show()
+
+#KDE Plot
+vis1 = sns.lmplot(data=movies, x='CriticRating', y='AudienceRating', fit_reg=False, hue='Genere', size=5, aspect=1)
+plt.show()
+k1 = sns.kdeplot(movies.CriticRating, movies.AudienceRating, shade=True, shade_lowerst=False, cmap='Reds')
+k2 = sns.kdeplot(movies.CriticRating, movies.AudienceRating, cmap='Reds')
+plt.show()
+
+#Subplots()
+sns.set_style('dark')
+f, axes = plt.subplots(1, 2, figsize=(12, 6), sharex=True, sharey=True)
+k1 = sns.kdeplot(movies.BudgetMillions, movies.AudienceRating, ax=axes[0])
+k2 = sns.kdeplot(movies.BudgetMillions, movies.CriticRating, ax=axes[1])
+k1.set(xlim=(-50,300))
+plt.show()
