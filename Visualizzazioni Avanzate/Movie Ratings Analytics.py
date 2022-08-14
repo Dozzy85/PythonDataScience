@@ -75,3 +75,23 @@ k1 = sns.kdeplot(movies.BudgetMillions, movies.AudienceRating, ax=axes[0])
 k2 = sns.kdeplot(movies.BudgetMillions, movies.CriticRating, ax=axes[1])
 k1.set(xlim=(-50,300))
 plt.show()
+
+#Violinplots vs Boxplot
+w = sns.boxplot(data=movies, x='Genere', y='CriticRating')
+plt.show()
+z = sns.violinplot(data=movies, x='Genere', y='CriticRating')
+plt.show()
+w1 = sns.boxplot(data=movies[movies.Genere == 'Drama'], x='Year', y='CriticRating')
+plt.show()
+z1 = sns.violinplot(data=movies[movies.Genere == 'Drama'], x='Year', y='CriticRating')
+plt.show()
+
+#Creare FacetGrid
+g = sns.FacetGrid(movies, row='Genere', col='Year', hue='Genere')
+kws = dict(s=50, linewidth=0.5, edgecolor='black')
+g.map(plt.scatter, 'CriticRating', 'AudienceRating', **kws)
+plt.show()
+
+g1 = sns.FacetGrid(movies, row='Genere', col='Year', hue='Genere')
+g1.map(plt.hist, 'BudgetMillions')
+plt.show()
